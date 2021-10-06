@@ -1,7 +1,9 @@
-function getRandomIntFromRange(from, to) {
-  return to <= from ? false : Math.floor(Math.random() * (to - from)) + from;
+function getRandomIntFromRange(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return max <= min ? false : Math.floor(Math.random() * (max - min + 1)) + min;
 }
-getRandomIntFromRange(0, 200);
+getRandomIntFromRange(-10, 10);
 
 function getRandomArbitrary(min, max, maxDigits = 0) {
   const digitsDegree = 10 ** maxDigits;
@@ -9,4 +11,4 @@ function getRandomArbitrary(min, max, maxDigits = 0) {
     ? false
     : ~~((Math.random() * (max - min) + min) * digitsDegree) / digitsDegree;
 }
-getRandomArbitrary(1, 2, 5);
+getRandomArbitrary(-10, 10, 5);
