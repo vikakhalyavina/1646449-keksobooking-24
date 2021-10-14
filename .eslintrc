@@ -16,6 +16,6 @@ globals:
 extends:
   "htmlacademy/vanilla"
 
-  rules: {
-  "no-console": 1
-}
+ // rules: {
+ // "no-console": 1
+//}

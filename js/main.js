@@ -1,3 +1,5 @@
+// Функции
+
 function getRandomIntFromRange(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
@@ -14,6 +16,8 @@ function getRandomArbitrary(min, max, maxDigits = 0) {
 }
 
 getRandomArbitrary(-10, 10, 5);
+
+// Первый объект
 
 const AVATAR = [
   'img/avatars/user01.png',
@@ -37,11 +41,14 @@ const author = () => {
     name: getRandomArrayElement(AVATAR),
   };
 };
-const similarWizards = Array.from({ length: 1 }, author);
-console.log(author());
+const similarAvatar = Array.from({ length: 1 }, author);
+
+console.log(similarAvatar);
+
+// Второй объект
 
 const LAT = [
-  function getRandomArbitrary(min = 35.65, max = 35.7, maxDigits = 5) {
+  function getRandomLat(min = 35.65, max = 35.7, maxDigits = 5) {
     const digitsDegree = 10 ** maxDigits;
     const result =
       ~~((Math.random() * (max - min) + min) * digitsDegree) / digitsDegree;
@@ -50,7 +57,7 @@ const LAT = [
 ];
 
 const LNG = [
-  function getRandomArbitrary(min = 139.7, max = 139.8, maxDigits = 5) {
+  function getRandomLng(min = 139.7, max = 139.8, maxDigits = 5) {
     const digitsDegree = 10 ** maxDigits;
     const result =
       ~~((Math.random() * (max - min) + min) * digitsDegree) / digitsDegree;
@@ -64,6 +71,8 @@ const location = () => {
   };
 };
 console.log(location());
+
+// Третий объект
 
 const title = ['hello', 'good morning', 'good day'];
 const address = ['{{location.lat}}', '{{location.lng}}'];
