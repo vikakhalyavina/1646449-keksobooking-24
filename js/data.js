@@ -1,27 +1,3 @@
-import { getRandomIntFromRange, getRandomArbitrary } from './util.js';
-import { createaAdv } from './data.js';
-
-// Функции
-
-function getRandomIntFromRange(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  const result = Math.floor(Math.random() * (max - min + 1)) + min;
-  return max <= min ? false : Math.abs(result);
-}
-getRandomIntFromRange(-10, 10);
-
-function getRandomArbitrary(min, max, maxDigits = 0) {
-  const digitsDegree = 10 ** maxDigits;
-  const result =
-    ~~((Math.random() * (max - min) + min) * digitsDegree) / digitsDegree;
-  return max <= min ? false : Math.abs(result);
-}
-
-getRandomArbitrary(-10, 10, 5);
-
-// Первый объект
-
 const AVATAR = [
   'img/avatars/user01.png',
   'img/avatars/user02.png',
@@ -136,3 +112,5 @@ for (let item = 0; item <= 10; item++) {
 const similarOffers = Array.from({ length: 10 }, createaAdv);
 
 //console.log(offers);
+
+export { createaAdv };
