@@ -52,6 +52,7 @@ const locations = () => ({
   latitude: LAT,
   longitude: LNG,
 });
+
 //console.log(locations());
 
 // Третий объект
