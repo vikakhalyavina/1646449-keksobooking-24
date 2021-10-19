@@ -32,15 +32,12 @@ const AVATAR = [
   'img/avatars/user10.png',
 ];
 
-const getRandomArrayElement = (elements) => {
-  return elements[getRandomIntFromRange(0, elements.length - 1)];
-};
+const getRandomArrayElement = (elements) =>
+  elements[getRandomIntFromRange(0, elements.length - 1)];
 
-const author = () => {
-  return {
-    name: getRandomArrayElement(AVATAR),
-  };
-};
+const author = () => ({
+  name: getRandomArrayElement(AVATAR),
+});
 const similarAvatar = Array.from({ length: 1 }, author);
 
 console.log(similarAvatar);
@@ -51,12 +48,10 @@ const LAT = getRandomArbitrary(35.65, 35.7, 5);
 
 const LNG = getRandomArbitrary(139.7, 139.8, 5);
 
-const locations = () => {
-  return {
-    latitude: LAT,
-    longitude: LNG,
-  };
-};
+const locations = () => ({
+  latitude: LAT,
+  longitude: LNG,
+});
 console.log(locations());
 
 // Третий объект
@@ -83,20 +78,30 @@ const PHOTOS = [
   'https://assets.htmlacademy.ru/content/intensive/javascript-1/keksobooking/brandon-hoogenboom-SNxQGWxZQi0.jpg',
   'https://assets.htmlacademy.ru/content/intensive/javascript-1/keksobooking/claire-rendall-b6kAwr1i0Iw.jpg',
 ];
-const offer = () => {
-  return {
-    title: getRandomArrayElement(TITLE),
-    address: ADDRESS,
-    price: PRICE,
-    type: getRandomArrayElement(TYPE),
-    rooms: ROOMS,
-    guests: GUESTS,
-    checkin: getRandomArrayElement(CHECKIN),
-    checkout: getRandomArrayElement(CHECKOUT),
-    features: getRandomArrayElement(FEATURES),
-    description: getRandomArrayElement(DESCRIPTION),
-    photos: getRandomArrayElement(PHOTOS),
-  };
-};
+const offer = () => ({
+  title: getRandomArrayElement(TITLE),
+  address: ADDRESS,
+  price: PRICE,
+  type: getRandomArrayElement(TYPE),
+  rooms: ROOMS,
+  guests: GUESTS,
+  checkin: getRandomArrayElement(CHECKIN),
+  checkout: getRandomArrayElement(CHECKOUT),
+  features: getRandomArrayElement(FEATURES),
+  description: getRandomArrayElement(DESCRIPTION),
+  photos: getRandomArrayElement(PHOTOS),
+});
 
 console.log(offer());
+
+const offers = [author(), offer(), locations()];
+const createaAdv = () => ({
+  author: author(),
+  offer: offer(),
+  location: locations(),
+});
+
+for (let item = 0; item <= 10; item++) {
+  offers.push(createaAdv());
+}
+console.log(offers);
