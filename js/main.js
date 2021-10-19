@@ -38,9 +38,9 @@ const getRandomArrayElement = (elements) =>
 const author = () => ({
   name: getRandomArrayElement(AVATAR),
 });
-const similarAvatar = Array.from({ length: 1 }, author);
+//const similarAvatar = Array.from({ length: 1 }, author);
 
-console.log(similarAvatar);
+//console.log(similarAvatar);
 
 // Второй объект
 
@@ -52,7 +52,7 @@ const locations = () => ({
   latitude: LAT,
   longitude: LNG,
 });
-console.log(locations());
+//console.log(locations());
 
 // Третий объект
 
@@ -92,7 +92,7 @@ const offer = () => ({
   photos: getRandomArrayElement(PHOTOS),
 });
 
-console.log(offer());
+//console.log(offer());
 
 const offers = [author(), offer(), locations()];
 const createaAdv = () => ({
@@ -104,4 +104,4 @@ const createaAdv = () => ({
 for (let item = 0; item <= 10; item++) {
   offers.push(createaAdv());
 }
-console.log(offers);
+//console.log(offers);
