@@ -62,7 +62,7 @@ console.log(locations());
 // Третий объект
 
 const TITLE = ['hello', 'good morning', 'good day'];
-const ADDRESS = ['{{location.lat}}', '{{location.lng}}'];
+const ADDRESS = locations();
 const PRICE = getRandomIntFromRange(0, 100);
 const TYPE = ['palace', 'flat', 'house', 'bungalow', 'hotel'];
 const ROOMS = getRandomIntFromRange(0, 100);
