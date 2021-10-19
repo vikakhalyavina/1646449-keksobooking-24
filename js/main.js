@@ -33,7 +33,7 @@ const AVATAR = [
 ];
 
 const getRandomArrayElement = (elements) => {
-  return elements[_.random(0, elements.length - 1)];
+  return elements[getRandomIntFromRange(0, elements.length - 1)];
 };
 
 const author = () => {
@@ -47,63 +47,29 @@ console.log(similarAvatar);
 
 // Второй объект
 
-const LAT = [
-  function getRandomLat(min = 35.65, max = 35.7, maxDigits = 5) {
-    const digitsDegree = 10 ** maxDigits;
-    const result =
-      ~~((Math.random() * (max - min) + min) * digitsDegree) / digitsDegree;
-    return max <= min ? false : Math.abs(result);
-  },
-];
+const LAT = getRandomArbitrary(35.65, 35.7, 5);
 
-const LNG = [
-  function getRandomLng(min = 139.7, max = 139.8, maxDigits = 5) {
-    const digitsDegree = 10 ** maxDigits;
-    const result =
-      ~~((Math.random() * (max - min) + min) * digitsDegree) / digitsDegree;
-    return max <= min ? false : Math.abs(result);
-  },
-];
-const location = () => {
+const LNG = getRandomArbitrary(139.7, 139.8, 5);
+
+const locations = () => {
   return {
     latitude: LAT,
     longitude: LNG,
   };
 };
-console.log(location());
+console.log(locations());
 
 // Третий объект
 
-const title = ['hello', 'good morning', 'good day'];
-const address = ['{{location.lat}}', '{{location.lng}}'];
-const price = [
-  function getRandomIntFromRange(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    const result = Math.floor(Math.random() * (max - min + 1)) + min;
-    return max <= min ? false : Math.abs(result);
-  },
-];
-const type = ['palace', 'flat', 'house', 'bungalow', 'hotel'];
-const rooms = [
-  function getRandomIntFromRange(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    const result = Math.floor(Math.random() * (max - min + 1)) + min;
-    return max <= min ? false : Math.abs(result);
-  },
-];
-const guests = [
-  function getRandomIntFromRange(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    const result = Math.floor(Math.random() * (max - min + 1)) + min;
-    return max <= min ? false : Math.abs(result);
-  },
-];
-const checkin = ['12:00', '13:00', '14:00'];
-const checkout = ['12:00', '13:00', '14:00'];
-const features = [
+const TITLE = ['hello', 'good morning', 'good day'];
+const ADDRESS = ['{{location.lat}}', '{{location.lng}}'];
+const PRICE = getRandomIntFromRange(0, 100);
+const TYPE = ['palace', 'flat', 'house', 'bungalow', 'hotel'];
+const ROOMS = getRandomIntFromRange(0, 100);
+const GUESTS = getRandomIntFromRange(0, 100);
+const CHECKIN = ['12:00', '13:00', '14:00'];
+const CHECKOUT = ['12:00', '13:00', '14:00'];
+const FEATURES = [
   'wifi',
   'dishwasher',
   'parking',
@@ -111,10 +77,26 @@ const features = [
   'elevator',
   'conditioner',
 ];
-const description = ['long', 'short', 'narrow', 'wide'];
-const photos = [
+const DESCRIPTION = ['long', 'short', 'narrow', 'wide'];
+const PHOTOS = [
   'https://assets.htmlacademy.ru/content/intensive/javascript-1/keksobooking/duonguyen-8LrGtIxxa4w.jpg',
   'https://assets.htmlacademy.ru/content/intensive/javascript-1/keksobooking/brandon-hoogenboom-SNxQGWxZQi0.jpg',
   'https://assets.htmlacademy.ru/content/intensive/javascript-1/keksobooking/claire-rendall-b6kAwr1i0Iw.jpg',
 ];
-const offer = () => {};
+const offer = () => {
+  return {
+    title: getRandomArrayElement(TITLE),
+    address: ADDRESS,
+    price: PRICE,
+    type: getRandomArrayElement(TYPE),
+    rooms: ROOMS,
+    guests: GUESTS,
+    checkin: getRandomArrayElement(CHECKIN),
+    checkout: getRandomArrayElement(CHECKOUT),
+    features: getRandomArrayElement(FEATURES),
+    description: getRandomArrayElement(DESCRIPTION),
+    photos: getRandomArrayElement(PHOTOS),
+  };
+};
+
+console.log(offer());
