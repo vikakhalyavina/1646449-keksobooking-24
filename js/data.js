@@ -1,3 +1,12 @@
+import {
+  getRandomIntFromRange,
+  getRandomArbitrary,
+  // eslint-disable-next-line comma-dangle
+  getRandomArrayElement,
+} from './util.js';
+
+// Первый объект
+
 const AVATAR = [
   'img/avatars/user01.png',
   'img/avatars/user02.png',
@@ -11,12 +20,8 @@ const AVATAR = [
   'img/avatars/user10.png',
 ];
 
-const getRandomArrayElement = (elements) =>
-  elements[getRandomIntFromRange(0, elements.length - 1)];
+const author = () => ({ avatar: getRandomArrayElement(AVATAR) });
 
-const author = () => ({
-  name: getRandomArrayElement(AVATAR),
-});
 //const similarAvatar = Array.from({ length: 1 }, author);
 
 //console.log(similarAvatar);
@@ -37,7 +42,7 @@ const locations = () => ({
 // Третий объект
 
 const TITLE = ['hello', 'good morning', 'good day'];
-const ADDRESS = locations();
+const ADDRESS = ['{{location.lat}}', '{{location.lng}}'];
 const PRICE = getRandomIntFromRange(0, 100);
 const TYPE = ['palace', 'flat', 'house', 'bungalow', 'hotel'];
 const ROOMS = getRandomIntFromRange(0, 100);
@@ -60,27 +65,8 @@ const PHOTOS = [
   'https://assets.htmlacademy.ru/content/intensive/javascript-1/keksobooking/claire-rendall-b6kAwr1i0Iw.jpg',
 ];
 
-const createRandomArrayFEATURES = (FEATURES) => {
-  const arr = Array.from(FEATURES);
-  const arrayNew = new Array(getRandomIntFromRange(1, arr.length));
-  for (let id = 0; id < arrayNew.length; id++) {
-    arrayNew[id] = arr
-      .splice(getRandomIntFromRange(0, arr.length - 1), 1)
-      .join();
-  }
-  return arrayNew;
-};
-
-const createRandomArrayPHOTOS = (PHOTOS) => {
-  const arr = Array.from(PHOTOS);
-  const arrayNew = new Array(getRandomIntFromRange(1, arr.length));
-  for (let id = 0; id < arrayNew.length; id++) {
-    arrayNew[id] = arr
-      .splice(getRandomIntFromRange(0, arr.length - 1), 1)
-      .join();
-  }
-  return arrayNew;
-};
+const createRandomArray = (arr) =>
+  arr.slice(0, getRandomIntFromRange(0, arr.length));
 
 const offer = () => ({
   title: getRandomArrayElement(TITLE),
@@ -91,26 +77,11 @@ const offer = () => ({
   guests: GUESTS,
   checkin: getRandomArrayElement(CHECKIN),
   checkout: getRandomArrayElement(CHECKOUT),
-  features: createRandomArrayFEATURES(),
+  features: createRandomArray(FEATURES),
   description: getRandomArrayElement(DESCRIPTION),
-  photos: createRandomArrayPHOTOS(),
+  photos: createRandomArray(PHOTOS),
 });
 
 //console.log(offer());
 
-const offers = [author(), offer(), locations()];
-const createaAdv = () => ({
-  author: author(),
-  offer: offer(),
-  location: locations(),
-});
-
-for (let item = 0; item <= 10; item++) {
-  offers.push(createaAdv());
-}
-
-const similarOffers = Array.from({ length: 10 }, createaAdv);
-
-//console.log(offers);
-
-export { createaAdv };
+export { author, offer, locations };

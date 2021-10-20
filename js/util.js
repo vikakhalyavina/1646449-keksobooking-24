@@ -15,4 +15,7 @@ function getRandomArbitrary(min, max, maxDigits = 0) {
 
 getRandomArbitrary(-10, 10, 5);
 
-export { getRandomIntFromRange, getRandomArbitrary };
+const getRandomArrayElement = (elements) =>
+  elements[getRandomIntFromRange(0, elements.length - 1)];
+
+export { getRandomIntFromRange, getRandomArbitrary, getRandomArrayElement };
