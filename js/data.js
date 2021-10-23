@@ -42,7 +42,6 @@ const locations = () => ({
 // Третий объект
 
 const TITLE = ['hello', 'good morning', 'good day'];
-const ADDRESS = ['{{location.lat}}', '{{location.lng}}'];
 const PRICE = getRandomIntFromRange(0, 100);
 const TYPE = ['palace', 'flat', 'house', 'bungalow', 'hotel'];
 const ROOMS = getRandomIntFromRange(0, 100);
@@ -70,7 +69,8 @@ const createRandomArray = (arr) =>
 
 const offer = () => ({
   title: getRandomArrayElement(TITLE),
-  address: ADDRESS,
+  // eslint-disable-next-line no-template-curly-in-string
+  address: '${locations().lat}, ${locations().lng}',
   price: PRICE,
   type: getRandomArrayElement(TYPE),
   rooms: ROOMS,
@@ -84,4 +84,17 @@ const offer = () => ({
 
 //console.log(offer());
 
-export { author, offer, locations };
+const offers = [];
+const createaAdv = () => ({
+  author: author(),
+  offer: offer(),
+  location: locations(),
+});
+
+for (let item = 0; item <= 10; item++) {
+  offers.push(createaAdv());
+}
+
+//const similarOffers = Array.from({ length: 10 }, createaAdv);
+
+//console.log(offers);
