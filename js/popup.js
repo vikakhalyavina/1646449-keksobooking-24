@@ -68,5 +68,4 @@ const createaCard = function (advertisement) {
 
   return popup;
 };
-
 //console.log(createaCard);
