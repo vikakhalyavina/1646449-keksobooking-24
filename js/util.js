@@ -18,4 +18,18 @@ getRandomArbitrary(-10, 10, 5);
 const getRandomArrayElement = (elements) =>
   elements[getRandomIntFromRange(0, elements.length - 1)];
 
-export { getRandomIntFromRange, getRandomArbitrary, getRandomArrayElement };
+function getElement(parentElement, elementSelector, elementContent) {
+  const element = parentElement.querySelector(elementSelector);
+  if (elementContent) {
+    element.textContent = elementContent;
+  }
+  return element;
+}
+
+export {
+  getRandomIntFromRange,
+  getRandomArbitrary,
+  getRandomArrayElement,
+  // eslint-disable-next-line comma-dangle
+  getElement,
+};

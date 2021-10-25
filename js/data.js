@@ -98,3 +98,5 @@ for (let item = 0; item <= 10; item++) {
 //const similarOffers = Array.from({ length: 10 }, createaAdv);
 
 //console.log(offers);
+
+export { createaAdv, offer, author };
