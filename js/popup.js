@@ -40,7 +40,7 @@ const createaCard = function (advertisement) {
     advertisement[0].offer.checkout;
   popup.querySelectorAll('.popup__features').textContent =
     advertisement[0].offer.features;
-  //console.log(advertisement[0].offer.features);
+  console.log(advertisement[0].offer.features);
   MAP.appendChild(popup);
 
   //   //const popupAvatar = getElement(popup, '.popup__avatar');
